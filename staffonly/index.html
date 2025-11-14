@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Chestnut Grove Cemetery - Information Updater - Staff Only</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="chestnutGrove.css">
+  <script src="https://js.arcgis.com/4.6/"></script>
+  <script src="chestnutGrove.js"></script>
+</head>
+
+<body class="claro">
+  <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters:true" style="width:100%; height:100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="height:60px; background-color:#478;">
+      <div id="title"><center>Chestnut Grove Cemetery</br>Staff Update Site</center></div>
+    </div>
+    <div id="leftPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" style="width:300px; padding:0; margin:0">
+      <div class="item" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'">
+        <p class="itemText">Legend<br></br></p>
+        <div id="LegendList"></div>
+      </div>
+    </div>
+    <div id="viewDiv" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="height:100%; width:100%; padding:0;">
+      <div id="editArea" class="editArea-container">
+        <div id="addFeatureDiv">
+          <h3 class="list-heading">Update Records</h3>
+          <ul style="font-size: 13px; padding-left: 1em;">
+            <center><li>Click Add Record Button</li>
+            <li>Click in the Center of a plot to add Record</li>
+			<li>Or Click a 'Null' dot to edit info</li></center>
+          </ul>
+          <input type="button" class="edit-button" value="Add Record" id="btnAddFeature">
+        </div>
+        <div id="updateInstructionDiv" style="text-align:center">
+          <p class="or-wrap"><span class="or-text">Or</span></p>
+          <p>Select a Record to edit or delete.</p>
+        </div>
+        <div id="featureUpdateDiv" style="display:none; margin-top: 1em; height:400px;overflow:auto;>
+          <h3 class="list-heading">Enter the Record information</h3>
+          <div id="attributeArea">
+            <label for="inputLast_Name">Enter Last Name: </label>
+            <input class="inputInfo" required type="text" id="inputLast_Name" placeHolder="Smith"><br>
+            <label for="inputFirst_Name">Enter First Name: </label>
+            <input class="inputInfo" required type="text" id="inputFirst_Name" placeHolder="John"><br>
+            <label for="inputMiddle_Name">Enter Middle Name: </label>
+            <input class="inputInfo" type="text" id="inputMiddle_Name" placeHolder="G. or Gerry"><br>
+			<label for="inputInterred">Type Status of Gravesite (all Caps): </label>
+            <input class="inputInfo" required type="text" id="inputInterred" placeholder="Vacant"><br>
+            <label for="inputDate_of_Birth">Enter Date of Birth: </label>
+            <input class="inputInfo" type="date" id="inputDate_of_Birth" pattern="MM/dd/yyyy" placeHolder="03/23/1983"><br>
+            <label for="inputDate_of_Death">Enter Date of Death: </label>
+            <input class="inputInfo" type="date" id="inputDate_of_Death" pattern="MM/dd/yyyy" placeHolder="10/25/2017"><br>
+            <label for="inputRegion">Pick A Region: </label>
+            <input class="inputInfo" required type="text" id="inputRegion" placeHolder="North or South"><br>
+            <label for="inputSection">Pick A Section: </label>
+            <input class="inputInfo" required type="text" id="inputSection" placeHolder="ex: S - 2"><br>
+            <label for="inputPlot">Type In A Plot Number: </label>
+            <input class="inputInfo" required type="text" id="inputPlot" placeHolder="ex: 34"><br>
+            <label for="inputGrave">Pick A Gravesite: </label>
+            <input class="inputInfo" required type="text" id="inputGrave" placeHolder="G - 4"><br>			
+			<label for="inputVeteran">Is the Interred a Veteran: </label>
+            <input class="inputInfo" type="text" id="inputVeteran" placeHolder="Type in 'Veteran'"><br>			
+            <label for="inputHeadstone">Is There a Headstone: </label>
+            <input class="inputInfo" type="text" id="inputHeadstone" placeHolder="Yes or No"><br>
+            <label for="inputFootstone">Is There a Footstone: </label>
+            <input class="inputInfo" type="text" id="inputFootstone" placeholder="Yes or No"><br>
+            <label for="inputPicture">Paste Link for Picture: </label>
+            <input class="inputInfo" type="text" id="inputPicture" placeHolder="http:www.picture.com"><br>
+            <input type="button" class="edit-button" value="Update Records" id="btnUpdate">
+          </div>
+          <div id="deleteArea">
+            <input type="button" class="edit-button" value="Delete Record" id="btnDelete">
+          </div>
+        </div>
+      </div>
+	  </div>
+    </div>
+  </div>
+</body>
+
+</html>
