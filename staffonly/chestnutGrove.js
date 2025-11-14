@@ -47,7 +47,7 @@ require([
     scope.updateInstructionDiv
 
     scope.map = new Map({
-      basemap: 'streets'
+      basemap: 'hybrid'
     })
 
     // initial extent of the view and home button
