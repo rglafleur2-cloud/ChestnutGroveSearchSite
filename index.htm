@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Chestnut Grove Cemetery - Search - Public</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="chestnutGrove.css">
+  <script src="https://js.arcgis.com/4.6/"></script>
+  <script src="chestnutGrove.js"></script>
+</head>
+
+<body class="claro">
+  <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters:true" style="width:100%; height:100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="height:60px; background-color:#478;">
+      <div id="title"><center>Chestnut Grove Cemetery</br>Search Site</center></div>
+    </div>
+    <div id="leftPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" style="width:300px; padding:0; margin:0">
+      <div class="item" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'">
+        <p class="itemText">Legend<br></br></p>
+        <div id="LegendList"></div>
+      </div>
+    </div>
+    <div id="viewDiv" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+      <div id="searchAreaDiv" class="searchArea">
+        <div id="searchFeatureDiv">
+          <h3 class="list-heading">Search Records</h3>
+          <ul style="font-size: 13px; padding-left: 1.5em;">
+            <li>Choose your search type</li>
+			<li>Or Zoom in To Click on A Location</li>
+          </ul>
+          <!-- <select id="searchSelect">
+            <option value="lname">Last Name</option>
+            <option value="fname">First Name</option>
+            <option value="dob">Date of Birth</option>
+            <option value="dod">Date of Death</option>
+            <option value="plot">Plot Number</option>
+            <option value="vet">Veterans</option>
+          </select> -->
+          <select data-dojo-type="dijit/form/Select" id="searchSelect" style="width: 100%;">
+            <option value="lastName" selected="selected">Last Name</option>
+            <option value="firstName">First Name</option>
+            <option value="birthDate">Date of Birth</option>
+            <option value="deathDate">Date of Death</option>
+            <option value="plotNumber">Plot Number</option>
+            <option value="veterans">Veterans</option>
+			<option value="dateRange">Date Range</option>
+          </select>
+		  <input type="text" id="searchInput" class="inputInfo"><br>
+		  <div id="datesInput" class="hidden">
+			  Start Date: <input type="date" id="startDate_of_Birth" style="color:#333" /><br>
+			  End Date:&nbsp <input type="date" id="endDate_of_Death" style="color:#333" />
+		  </div>
+          <label id="searchHint" style="font-style: italic; color:blue">Example: Rob</label>
+          <input type="button" class="search-button" value="Search" id="btnSearchFeature">
+          <input type="button" class="clear-button hidden" value="Clear Results" id="btnClearResults">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
